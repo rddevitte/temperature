@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+
+BUILDDIR="${PWD}/_build"
+INSTALLDIR="${PWD}/_install"
+
+rm -rf "${BUILDDIR}" "${INSTALLDIR}"

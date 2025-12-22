@@ -1,0 +1,7 @@
+FROM alpine:3.23
+
+RUN apk add --update --no-cache g++ make cmake gtest-dev
+
+VOLUME /opt/temperature
+
+WORKDIR /opt/temperature
