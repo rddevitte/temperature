@@ -10,9 +10,13 @@ namespace temperature {
 struct TemperatureInKelvin final : public BaseTemperature {
     explicit TemperatureInKelvin(TemperatureValueType _value) noexcept;
 
-    static TemperatureInKelvin Convert(const TemperatureInDegreesCelsius &c) noexcept;
+    explicit TemperatureInKelvin(const TemperatureInDegreesCelsius &c) noexcept;
 
-    static TemperatureInKelvin Convert(const TemperatureInDegreesFahrenheit &f) noexcept;
+    explicit TemperatureInKelvin(const TemperatureInDegreesFahrenheit &f) noexcept;
+
+    operator TemperatureInDegreesCelsius() const noexcept;
+
+    operator TemperatureInDegreesFahrenheit() const noexcept;
 };
 
 }  // namespace temperature

@@ -10,32 +10,33 @@ class TemperatureTest : public ::testing::Test {
 
 TEST_F(TemperatureTest, ConvertCorrectlyFromDegreesCelsiusToDegreesFahrenheit)
 {
-    EXPECT_EQ(f, temperature::TemperatureInDegreesFahrenheit::Convert(c));
+    //EXPECT_EQ(f, static_cast<temperature::TemperatureInDegreesFahrenheit>(c));
+    EXPECT_EQ(f, static_cast<temperature::TemperatureInDegreesFahrenheit>(c));
 }
 
 TEST_F(TemperatureTest, ConvertCorrectlyFromDegreesCelsiusToKelvin)
 {
-    EXPECT_EQ(k, temperature::TemperatureInKelvin::Convert(c));
+    EXPECT_EQ(k, static_cast<temperature::TemperatureInKelvin>(c));
 }
 
 TEST_F(TemperatureTest, ConvertCorrectlyFromDegreesFahrenheitToDegreesCelsius)
 {
-    EXPECT_EQ(c, temperature::TemperatureInDegreesCelsius::Convert(f));
+    EXPECT_EQ(c, static_cast<temperature::TemperatureInDegreesCelsius>(f));
 }
 
 TEST_F(TemperatureTest, ConvertCorrectlyFromDegreesFahrenheitToKelvin)
 {
-    EXPECT_EQ(k, temperature::TemperatureInKelvin::Convert(f));
+    EXPECT_EQ(k, static_cast<temperature::TemperatureInKelvin>(f));
 }
 
 TEST_F(TemperatureTest, ConvertCorrectlyFromKelvinToDegreesCelsius)
 {
-    EXPECT_EQ(c, temperature::TemperatureInDegreesCelsius::Convert(k));
+    EXPECT_EQ(c, static_cast<temperature::TemperatureInDegreesCelsius>(k));
 }
 
 TEST_F(TemperatureTest, ConvertCorrectlyFromKelvinToDegreesFahrenheit)
 {
-    EXPECT_EQ(f, temperature::TemperatureInDegreesFahrenheit::Convert(k));
+    EXPECT_EQ(f, static_cast<temperature::TemperatureInDegreesFahrenheit>(k));
 }
 
 TEST_F(TemperatureTest, NoThrowOnAllCorrectTemperatureValuesInEachRespectiveUnit)

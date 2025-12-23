@@ -7,16 +7,26 @@ TemperatureInDegreesFahrenheit::TemperatureInDegreesFahrenheit(TemperatureValueT
 {
 }
 
-TemperatureInDegreesFahrenheit TemperatureInDegreesFahrenheit::Convert(
-    const TemperatureInKelvin &k) noexcept
+TemperatureInDegreesFahrenheit::TemperatureInDegreesFahrenheit(
+    const TemperatureInDegreesCelsius &c) noexcept
+    : BaseTemperature(c * (9.0 / 5.0) + 32.0, "°F")
 {
-    return TemperatureInDegreesFahrenheit{ (k - 273.15) * (9.0 / 5.0) + 32.0 };
 }
 
-TemperatureInDegreesFahrenheit TemperatureInDegreesFahrenheit::Convert(
-    const TemperatureInDegreesCelsius &c) noexcept
+TemperatureInDegreesFahrenheit::TemperatureInDegreesFahrenheit(
+    const TemperatureInKelvin &k) noexcept
+    : BaseTemperature((k - 273.15) * (9.0 / 5.0) + 32.0, "°F")
 {
-    return TemperatureInDegreesFahrenheit{ c * (9.0 / 5.0) + 32.0 };
+}
+
+TemperatureInDegreesFahrenheit::operator TemperatureInDegreesCelsius() const noexcept
+{
+    return static_cast<TemperatureInDegreesCelsius>(*this);
+}
+
+TemperatureInDegreesFahrenheit::operator TemperatureInKelvin() const noexcept
+{
+    return static_cast<TemperatureInKelvin>(*this);
 }
 
 }  // namespace temperature

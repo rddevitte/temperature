@@ -7,16 +7,25 @@ TemperatureInDegreesCelsius::TemperatureInDegreesCelsius(TemperatureValueType _v
 {
 }
 
-TemperatureInDegreesCelsius TemperatureInDegreesCelsius::Convert(
-    const TemperatureInKelvin &k) noexcept
+TemperatureInDegreesCelsius::TemperatureInDegreesCelsius(
+    const TemperatureInDegreesFahrenheit &f) noexcept
+    : BaseTemperature((f - 32.0) * (5.0 / 9.0), "°C")
 {
-    return TemperatureInDegreesCelsius{ k - 273.15 };
 }
 
-TemperatureInDegreesCelsius TemperatureInDegreesCelsius::Convert(
-    const TemperatureInDegreesFahrenheit &f) noexcept
+TemperatureInDegreesCelsius::TemperatureInDegreesCelsius(const TemperatureInKelvin &k) noexcept
+    : BaseTemperature(k - 273.15, "°C")
 {
-    return TemperatureInDegreesCelsius{ (f - 32.0) * (5.0 / 9.0) };
+}
+
+TemperatureInDegreesCelsius::operator TemperatureInDegreesFahrenheit() const noexcept
+{
+    return static_cast<TemperatureInDegreesFahrenheit>(*this);
+}
+
+TemperatureInDegreesCelsius::operator TemperatureInKelvin() const noexcept
+{
+    return static_cast<TemperatureInKelvin>(*this);
 }
 
 }  // namespace temperature

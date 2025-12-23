@@ -2,17 +2,21 @@
 #define TEMPERATURE_IN_DEGREES_FAHRENHEIT_HPP
 
 #include "base_temperature.hpp"
-#include "temperature_in_kelvin.hpp"
 #include "temperature_in_degrees_celsius.hpp"
+#include "temperature_in_kelvin.hpp"
 
 namespace temperature {
 
 struct TemperatureInDegreesFahrenheit final : public BaseTemperature {
     explicit TemperatureInDegreesFahrenheit(TemperatureValueType _value) noexcept;
 
-    static TemperatureInDegreesFahrenheit Convert(const TemperatureInKelvin &k) noexcept;
+    explicit TemperatureInDegreesFahrenheit(const TemperatureInDegreesCelsius &c) noexcept;
 
-    static TemperatureInDegreesFahrenheit Convert(const TemperatureInDegreesCelsius &c) noexcept;
+    explicit TemperatureInDegreesFahrenheit(const TemperatureInKelvin &k) noexcept;
+
+    operator TemperatureInDegreesCelsius() const noexcept;
+
+    operator TemperatureInKelvin() const noexcept;
 };
 
 }  // namespace temperature
