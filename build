@@ -1,10 +1,12 @@
 #!/usr/bin/env sh
 
+set -eux
+
 BUILDDIR="${PWD}/_build"
 INSTALLDIR="${PWD}/_install"
 
 mkdir -pv "${BUILDDIR}" "${INSTALLDIR}"
 
-cmake -DCMAKE_INSTALL_PREFIX=${INSTALLDIR} -S . -B "${BUILDDIR}" -Werror=dev
+cmake -DCMAKE_CXX_COMPILER=g++ -DBUILD_SHARED_LIBS=ON -DCMAKE_INSTALL_PREFIX=${INSTALLDIR} -S . -B "${BUILDDIR}" -Werror=dev
 cmake --build "${BUILDDIR}"
 cmake --install "${BUILDDIR}" --prefix "${INSTALLDIR}" --config Release

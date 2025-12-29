@@ -14,6 +14,10 @@ struct TemperatureInDegreesFahrenheit final : public BaseTemperature {
 
     explicit TemperatureInDegreesFahrenheit(const TemperatureInKelvin &k) noexcept;
 
+    bool operator==(const TemperatureInDegreesFahrenheit &other) const noexcept;
+
+    bool operator!=(const TemperatureInDegreesFahrenheit &other) const noexcept;
+
     operator TemperatureInDegreesCelsius() const noexcept;
 
     operator TemperatureInKelvin() const noexcept;

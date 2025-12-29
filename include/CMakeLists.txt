@@ -1,0 +1,9 @@
+install(
+    FILES
+        base_temperature.hpp
+        temperature.hpp
+        temperature_in_degrees_celsius.hpp
+        temperature_in_degrees_fahrenheit.hpp
+        temperature_in_kelvin.hpp
+    DESTINATION
+        include/temperature)

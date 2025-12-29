@@ -1,3 +1,4 @@
+#include <tuple>
 #include "temperature_in_degrees_celsius.hpp"
 
 namespace temperature {
@@ -16,6 +17,18 @@ TemperatureInDegreesCelsius::TemperatureInDegreesCelsius(
 TemperatureInDegreesCelsius::TemperatureInDegreesCelsius(const TemperatureInKelvin &k) noexcept
     : BaseTemperature(k - 273.15, "°C")
 {
+}
+
+bool TemperatureInDegreesCelsius::operator==(
+    const TemperatureInDegreesCelsius &other) const noexcept
+{
+    return std::tie(value, unit_suffix) == std::tie(other.value, other.unit_suffix);
+}
+
+bool TemperatureInDegreesCelsius::operator!=(
+    const TemperatureInDegreesCelsius &other) const noexcept
+{
+    return !(*this == other);
 }
 
 TemperatureInDegreesCelsius::operator TemperatureInDegreesFahrenheit() const noexcept

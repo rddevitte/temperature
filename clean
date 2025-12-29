@@ -1,5 +1,7 @@
 #!/usr/bin/env sh
 
+set -eux
+
 BUILDDIR="${PWD}/_build"
 INSTALLDIR="${PWD}/_install"
 

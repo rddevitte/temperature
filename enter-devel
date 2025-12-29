@@ -1,5 +1,7 @@
 #!/usr/bin/env sh
 
-docker build -t temperature -f Dockerfile-devel .
+set -eux
 
-docker run --rm -it -v $(pwd):/opt/temperature -u $(id -u):$(id -g) temperature sh
+docker build -t temperature:1.0 -f Dockerfile-devel .
+
+docker run --rm -it -v $(pwd):/opt/temperature -u $(id -u):$(id -g) temperature:1.0 bash

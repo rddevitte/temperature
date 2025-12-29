@@ -16,12 +16,11 @@ struct BaseTemperature {
     TemperatureValueType operator-(TemperatureValueType v) const noexcept;
     TemperatureValueType operator*(TemperatureValueType v) const noexcept;
 
-    bool operator==(const BaseTemperature &other) const noexcept;
-    bool operator!=(const BaseTemperature &other) const noexcept;
-
    protected:
     BaseTemperature(TemperatureValueType _value,
                     const TemperatureUnitSuffixType &_unit_suffix) noexcept;
+
+    virtual ~BaseTemperature() = default;
 };
 
 std::ostream &operator<<(std::ostream &os, const BaseTemperature &t);

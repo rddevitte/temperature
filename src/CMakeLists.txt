@@ -1,4 +1,4 @@
-add_library(temperature SHARED)
+add_library(temperature)
 
 target_sources(temperature PRIVATE
     base_temperature.cpp

@@ -1,4 +1,3 @@
-#include <tuple>
 #include "base_temperature.hpp"
 
 namespace temperature {
@@ -22,16 +21,6 @@ TemperatureValueType BaseTemperature::operator-(TemperatureValueType v) const no
 TemperatureValueType BaseTemperature::operator*(TemperatureValueType v) const noexcept
 {
     return value * v;
-}
-
-bool BaseTemperature::operator==(const BaseTemperature &other) const noexcept
-{
-    return std::tie(value, unit_suffix) == std::tie(other.value, other.unit_suffix);
-}
-
-bool BaseTemperature::operator!=(const BaseTemperature &other) const noexcept
-{
-    return !(*this == other);
 }
 
 std::ostream &operator<<(std::ostream &os, const temperature::BaseTemperature &t)

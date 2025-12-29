@@ -10,5 +10,6 @@ add_compile_options(-Wall -Wextra -Wshadow -Wconversion -Werror -pedantic)
 
 include_directories("${PROJECT_SOURCE_DIR}/include")
 
+add_subdirectory("${PROJECT_SOURCE_DIR}/include")
 add_subdirectory("${PROJECT_SOURCE_DIR}/src")
 add_subdirectory("${PROJECT_SOURCE_DIR}/test")

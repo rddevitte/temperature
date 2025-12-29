@@ -1,6 +1,23 @@
-FROM alpine:3.23
+FROM ubuntu:noble
 
-RUN apk add --update --no-cache g++ make cmake gtest-dev
+ARG DEBIAN_FRONTEND=noninteractive
+
+ENV TZ=America/Sao_Paulo
+
+RUN ln -snf /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime && \
+    echo America/Sao_Paulo > /etc/timezone && \
+    apt update && \
+    apt install -y --no-install-recommends \
+        g++ \
+        make \
+        cmake \
+        libgtest-dev \
+        valgrind \
+        doxygen \
+        clang \
+        && \
+    apt -y autoremove && \
+    apt -y clean
 
 VOLUME /opt/temperature
 

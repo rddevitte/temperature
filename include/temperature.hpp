@@ -7,7 +7,7 @@
 
 namespace temperature {
 
-struct Temperature {
+struct Temperature final {
     const TemperatureInDegreesCelsius in_degrees_celsius;
     const TemperatureInDegreesFahrenheit in_degrees_fahrenheit;
     const TemperatureInKelvin in_kelvin;
